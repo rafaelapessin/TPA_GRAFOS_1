@@ -1,3 +1,7 @@
+// RAFAELA AMORIM PESSIN
+// TPA 2023/1
+// GRAFOS - PARTE 1
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -8,14 +12,14 @@ import grafo.Vertice;
 import util.Leitor;
 
 public class Main {
-    static Grafo<Cidade> grafo = new Grafo<Cidade>();
+    static Grafo<Cidade> grafo = new Grafo<Cidade>();       // cria um novo grafo
     public static void main(String[] args) throws IOException{        
         try {
-            lerGrafo("entrada_test.txt", grafo);
+            // passando o arquivo para criar o grafo
+            lerGrafo("entrada.txt", grafo);
             
             int selection, codCidade;
-            
-            
+
             do {
                 printMenu();
                 selection = getSelection();
@@ -38,7 +42,7 @@ public class Main {
                         grafo.obterCaminhos(new Cidade(codCidade, ""));
                         break;
                     case 3:
-                        //METODO SAIR
+                        // Encerra do programa
                         break;
                     default:
                         break;
@@ -52,46 +56,54 @@ public class Main {
 
     // MENU DE OPÇÕES
     private static void printMenu(){
-        System.out.println("=================MENU=================");
+        System.out.println("================= MENU =================");
         System.out.println("1 - Obter cidades vizinhas");
         System.out.println("2 - Obter todos os caminhos a partir de uma cidade");
         System.out.println("3 - Sair");
         System.out.println("======================================");
     } 
     
+    // Retorna a opção que o usuário escolheu no menu
     private static int getSelection(){
-        System.out.println("Escolha uma opcao: ");
+        System.out.println("Escolha uma opção: ");
         return Leitor.getLeitor().nextInt();
     }
 
+    // Método que vai criar o grafo a partir do arquivo de entrada
+    // Faz um laço do tamanho do número de cidades informada no início do arquivo
+    // A cada linha lida, cria um vértice e as arestas e adiciona no grafo
+    // Um vértice é uma cidade, composta por código e nome
+    // Uma aresta é a distância da cidade escolhida para cada uma das cidades vizinhas
     public static void lerGrafo(String path, Grafo<Cidade> grafo) throws IOException {
 		BufferedReader buffRead = new BufferedReader(new FileReader(path));
 		String linha = "";
 	
-		int qtdCidades = Integer.parseInt(buffRead.readLine());
+		int qtdCidades = Integer.parseInt(buffRead.readLine());     // a primeira linha do arquivo tem apenas um número n inteiro indicando a quantidade de cidades
 
-		for(int i = 0; i < qtdCidades; i++){
+        // cada linha que contém código e cidade será um vértice do grafo
+        // vai ler a linha, criar o vértice e adicionar o vértice no grafo
+		for(int i = 0; i < qtdCidades; i++){                        
 			linha = buffRead.readLine();
             String[] line = linha.split(";");
-
 			int cod = Integer.parseInt(line[0]);
             String cidade = line[1];
             Vertice<Cidade> vertice = new Vertice<Cidade>(new Cidade(cod,cidade));
 			grafo.adicionarVertice(vertice);
 		}
 
+        // Adiciona a aresta no grafo com a distância, a cidade de origem e a cidade de destino
 		for(int i = 1; i < qtdCidades + 1; i++){
             linha = buffRead.readLine();
 			if(linha != null){
                 String[] line = linha.split(";");
-
+                // faz um for na terceira parte do arquivo, traz os valores indicando a distância entre duas cidades
                 for(int k = 0; k < qtdCidades; k++){
-                    float peso = Float.parseFloat((line[k]).replaceAll(",", "."));
+                    float distancia = Float.parseFloat((line[k]).replaceAll(",", "."));
 
-                    if(peso != 0){
+                    if(distancia != 0){
                         Cidade origem = new Cidade(i,"");
                         Cidade destino = new Cidade((k+1),"");
-                        grafo.adicionarAresta(peso, origem, destino);
+                        grafo.adicionarAresta(distancia, origem, destino);
                     }
                 }
             }

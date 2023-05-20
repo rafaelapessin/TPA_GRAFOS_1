@@ -24,10 +24,10 @@ public class Grafo<T>{
         return null;
     }
 
-    public void adicionarAresta(Float peso, T vInicio, T vFim){
+    public void adicionarAresta(Float distancia, T vInicio, T vFim){
         Vertice<T> origem = this.getVertice(vInicio);
         Vertice<T> destino = this.getVertice(vFim);
-        origem.adicionarDestino(new Aresta<T>(peso, destino));
+        origem.adicionarDestino(new Aresta<T>(distancia, destino));
     }
 
     public void obterCidadesVizinhas(T dado){        
