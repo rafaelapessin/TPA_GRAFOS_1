@@ -23,5 +23,13 @@ public class Cidade{
         return "codigo: " + codigo + "; nome: " + nome;
     }
 
+    @Override
+    public boolean equals(Object obj) {
+        
+        if(obj == null) return false;
+        int cod = ((Cidade) obj).codigo;
+        return codigo == cod;
+    }
+
    
 }
