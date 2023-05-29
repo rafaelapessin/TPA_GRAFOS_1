@@ -30,12 +30,14 @@ public class Grafo<T>{
         return null;
     }
 
+    // Passa o vértice de origem e o vértice de destino e a distância entre os vértices para criar uma aresta/caminho entre cidades
     public void adicionarAresta(Float distancia, T vInicio, T vFim){
         Vertice<T> origem = this.getVertice(vInicio);
         Vertice<T> destino = this.getVertice(vFim);
         origem.adicionarDestino(new Aresta<T>(distancia, destino));
     }
 
+    // Imprime todas as cidades vizinhas/adjacentes a uma cidade de origem
     public void obterCidadesVizinhas(T dado){        
         for(Vertice<T> vertice: vertices){
             // Verifica se o vertice atual contém a Cidade igual a que está sendo procurada
@@ -49,6 +51,8 @@ public class Grafo<T>{
         }
     }    
 
+    // O método pega no grafo o vértice da cidade de origem
+    // Em seguida faz um caminhamento no grafo para encontrar os caminhos a partir dele.
     public void obterCaminhos(T dado){
         ArrayList<Vertice<T>> marcados = new ArrayList<Vertice<T>>();
         ArrayList<Vertice<T>> fila = new ArrayList<Vertice<T>>();

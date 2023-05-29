@@ -15,7 +15,7 @@ public class Main {
     static Grafo<Cidade> grafo = new Grafo<Cidade>();       // cria um novo grafo
     public static void main(String[] args) throws IOException{        
         try {
-            // passando o arquivo para criar o grafo
+            // passando o arquivo gerado pelo gerador de arquivos para criar o grafo
             lerGrafo("entrada.txt", grafo);
             
             int selection, codCidade;
