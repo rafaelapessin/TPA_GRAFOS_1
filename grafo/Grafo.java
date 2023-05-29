@@ -1,7 +1,13 @@
+// RAFAELA AMORIM PESSIN
+// TPA 2023/1
+// GRAFOS - PARTE 1
+
 package grafo;
 
 import java.util.ArrayList;
 
+// Um grafo é representado computacionalmente por uma lista de adjacências, que é uma lista de de vértices conectados por arestas
+// Um grafo representa um conjunto de vértices (cidades) e um conjunto de arestas (caminhos) que conectam esses vértices
 public class Grafo<T>{
     private ArrayList<Vertice<T>> vertices;
 

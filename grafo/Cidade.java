@@ -1,5 +1,11 @@
+// RAFAELA AMORIM PESSIN
+// TPA 2023/1
+// GRAFOS - PARTE 1
+
 package grafo;
 
+// Classe Cidade
+// Cidade tem código e nome
 public class Cidade{
     private int codigo;
     private String nome;
@@ -9,20 +15,24 @@ public class Cidade{
         this.nome = nome;
     }
 
+    // Obtém o código da cidade
     public int getCodigo() {
         return codigo;
     }
 
+    // Obtém o nome da cidade
     public String getNome() {
         return nome;
     }
 
+    // Retorna o código e nome da cidade
     @Override
     public String toString() {
         
         return "codigo: " + codigo + "; nome: " + nome;
     }
 
+    // Compara os códigos da cidade
     @Override
     public boolean equals(Object obj) {
         
