@@ -140,7 +140,7 @@ public class GeradorArquivosGrafo {
         GeradorArquivosGrafo g = new GeradorArquivosGrafo();
         
         
-        int TAM = 5;
+        int TAM = 10;
         long tempoInicial = System. currentTimeMillis();        
         g.geraArquivo(TAM);
         long tempoFinal = System. currentTimeMillis();
