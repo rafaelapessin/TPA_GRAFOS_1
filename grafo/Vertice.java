@@ -41,18 +41,5 @@ public class Vertice<T> {
     public ArrayList<Aresta<T>> getDestinos(){
         return destinos;
     }
-
-    // @Override
-    // protected Vertice<T> clone() {
-    //     Vertice<T> v = new Vertice<T>(this.valor);
-    //     for(Aresta<T> a : this.destinos){
-    //         v.destinos.add(a.clone());
-    //     }
-    //     return v;
-    // }
-
-    // @Override
-    // public String toString() {
-    //     return this.valor.toString();
-    // }
+    
 }

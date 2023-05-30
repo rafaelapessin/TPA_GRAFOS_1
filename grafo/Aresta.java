@@ -42,9 +42,5 @@ public class Aresta<T> {
         
         return destino.getValor() + "; peso: " + this.peso;
     }
-
-    // @Override
-    // public Aresta<T> clone(){
-    //     return new Aresta<T>(this.peso, this.destino);
-    // }
+    
 }
